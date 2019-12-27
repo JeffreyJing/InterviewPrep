@@ -1,23 +1,26 @@
-public class node<T extends Comparable<T>> implements  Comparable<node<T>> {
+public class node {
     node next;
-    node back;
-    private T value;
+    private int value;
 
-    public node(node<T> next, node<T> back, T value) {
+    public node(int value, node next) {
         this.next = next;
-        this.back = back;
         this.value = value;
     }
 
     public node() {
-        this(null, null, null);
+        this(0, null);
     }
 
-    public node(T value) {
-        this(null, null, value);
+    public node(int value) {
+        this(value, null);
     }
 
-    public int compareTo(node<T> other) {
-        return 1;
+
+    public int getValue() {
+        return this.value;
+    }
+
+    public int compareTo(node other) {
+        return this.value - other.value;
     }
 }
