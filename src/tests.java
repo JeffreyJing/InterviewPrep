@@ -36,6 +36,8 @@ public class tests {
 
     }
 
+    // Inserts a given 'num' value into the given 'list' LinkedList and prints a statement
+    // on the modifications of the given 'list' LinkedList.
     public static void insertIntoList(int num, LinkedList list, String listName) {
         System.out.println("Inserting " + num + " into " + listName + ". ");
         System.out.print(listName + " is now: ");
@@ -44,6 +46,8 @@ public class tests {
         System.out.println(", and its length is: " + list.getLength());
     }
 
+    // Attempts to insert a given value into the given 'list' LinkedList at the given index,
+    // and prints a message based on whether the insert was successful.
     public static void insertAtIndex(int value, int index, LinkedList list, String listName) {
         System.out.println("Now attempting to insert " + value + " at index " + index + " into " + listName + ".");
         if (list.insert(value, index)) {
@@ -56,6 +60,9 @@ public class tests {
         }
     }
 
+    // Prints a message about the status of an attempted LinkedList copy.
+    // Success is determined by whether each of first's nodes' values are equal to each of second's, while
+    // first and second are separate LinkedLists.
     public static void testCopyConstructor(LinkedList first, LinkedList second, String firstName, String secondName) {
         System.out.println("Now attempting to make a copy of " + firstName + " and store it in " + secondName + ".");
         System.out.print(firstName + " = ");
@@ -72,6 +79,8 @@ public class tests {
 
     }
 
+    // Returns true if first and each of first's next nodes are not pointing to the same
+    // nodes second and second's next nodes are pointing to.
     public static boolean uniqueNodes(node first, node second) {
         while (first != null && second != null) {
             return first != second && uniqueNodes(first.next, second.next);

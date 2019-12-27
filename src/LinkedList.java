@@ -4,16 +4,20 @@ public class LinkedList {
     private node head;
     private int length;
 
+    // This is a default LinkedList constructor
     public LinkedList() {
         this.head = null;
         this.length = 0;
     }
 
+    // This is a constructor that creates a LinkedList of length 1 with the given
+    // integer parameter.
     public LinkedList(int value) {
         this.head = new node(value);
         this.length = 1;
     }
 
+    // This is a copy constructor that creates a copy of the given LinkedList parameter.
     public LinkedList(LinkedList otherList) {
         if (otherList != null) {
             node temp = otherList.head;
@@ -30,6 +34,7 @@ public class LinkedList {
         }
     }
 
+    // Prints out this LinkedList in "1 2 3 4 5" format.
     public void print() {
         node temp = this.head;
         while (temp != null) {
@@ -38,6 +43,7 @@ public class LinkedList {
         }
     }
 
+    // Returns the head of this LinkedList.
     public node getHead() {
         return this.head;
     }
@@ -72,12 +78,14 @@ public class LinkedList {
         return this.insert(value, 0);
     }
 
-
     // Returns the length of this LinkedList.
     public int getLength() {
         return this.length;
     }
 
+
+    // Returns whether the given parameter LinkedList is equal to this LinkedList
+    // (equal meaning containing the same value elements and being the same length).
     public boolean equals(LinkedList otherList) {
         if (otherList.getLength() != this.getLength()) {
             return false;
