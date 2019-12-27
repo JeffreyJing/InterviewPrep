@@ -13,14 +13,26 @@ public class tests {
         list2.print();
         System.out.println();
 
-        // test basic inserts
+        // test array constructor
+        int[] array = new int[13];
+        for (int i = 0; i < 13; i++) {
+            array[i] = i * 2;
+        }
+
+        LinkedList longLinkedList = new LinkedList(array);
+        System.out.print("longLinkedList is: ");
+        longLinkedList.print();
+        System.out.println();
+        System.out.println();
+
+        // test basic insert()
         insertIntoList(6, list2, "list2");
         insertIntoList(7, list2, "list2");
         insertIntoList(8, list2, "list2");
         insertIntoList(100, list1, "list1");
         System.out.println();
 
-        // test inserts at given indices
+        // test insert() at given indices
         insertAtIndex(5, 1, list1, "list1");
         insertAtIndex(10, 0, list1, "list1");
         insertAtIndex(20, 0, list1, "list1");
@@ -37,26 +49,35 @@ public class tests {
         testCopyConstructor(new LinkedList(5), new LinkedList(new LinkedList(5)), "original", "copy");
         System.out.println();
 
-        // test makeEmpty
+        // test makeEmpty()
         System.out.println("Testing makeEmpty().");
         testMakeEmpty(list3, "list3");
         LinkedList list4 = new LinkedList();
         testMakeEmpty(list4, "list4");
         System.out.println();
 
-        // test remove
+        // test remove()
         System.out.println("Testing remove().");
         testRemove(list3, 5, "list3");
         testRemove(list3, 6, "list3");
         testRemove(list2, 5, "list2");
         testRemove(list2, 6, "list2");
+        System.out.println();
 
-        // test contains
+        // test contains()
         System.out.println("Testing contains().");
         testContains(list3, 5, "list3");
         testContains(list2, 5, "list2");
         testContains(list2, 7, "list2");
         testContains(list2, 8, "list2");
+        System.out.println();
+
+        // test elementAtIndex()
+        System.out.println("Testing elementAtIndex().");
+        testElementAtIndex(longLinkedList, 3, "longLinkedList");
+        testElementAtIndex(longLinkedList, -1, "longLinkedList");
+        testElementAtIndex(longLinkedList, 0, "longLinkedList");
+        testElementAtIndex(longLinkedList, 14, "longLinkedList");
     }
 
     // Inserts a given 'num' value into the given 'list' LinkedList and prints a statement
@@ -111,7 +132,7 @@ public class tests {
         return true;
     }
 
-    // tests the LinkedList's makeEmpty() method and prints out a message
+    // Tests the LinkedList's makeEmpty() method and prints out a message
     // based on the results.
     public static void testMakeEmpty(LinkedList list, String listName) {
         System.out.print(listName + " before makeEmpty(): ");
@@ -128,7 +149,7 @@ public class tests {
         }
     }
 
-    // tests the LinkedList's remove() method and prints out a message
+    // Tests the LinkedList's remove() method and prints out a message
     // based on the results.
     public static void testRemove(LinkedList list, int value, String listName) {
         System.out.print(listName + " before remove(): ");
@@ -140,17 +161,25 @@ public class tests {
             System.out.println("Error: remove() failed. " + value + " is not found in " + listName + ".");
         }
 
-        System.out.print(listName + " after remove(): ");
+        System.out.print(listName + "  after remove(): ");
         list.print();
         System.out.println();
     }
 
-    // tests the linkedList's contains method.
+    // Tests the LinkedList's contains method.
     public static void testContains(LinkedList list, int value, String listName) {
-        System.out.print(listName + "= ");
+        System.out.print(listName + " = ");
         list.print();
         System.out.print(", value = " + value + ".");
         System.out.println();
         System.out.println(listName + " contains " + value + ": " + list.contains(value));
+    }
+
+    // Tests the LinkedList's elementAtIndex
+    public static void testElementAtIndex(LinkedList list, int index, String listName) {
+        System.out.print(listName + " = ");
+        list.print();
+        System.out.println();
+        System.out.println("The element at index " + index + " is " + list.elementAtIndex(index) + ".");
     }
 }

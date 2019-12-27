@@ -34,6 +34,22 @@ public class LinkedList {
         }
     }
 
+    // Constructs a LinkedList based on the given 'list' parameter.
+    public LinkedList(int[] list) {
+        if (list.length != 0) {
+            this.head = new node(list[0]);
+            node temp = this.head;
+            for (int i = 1; i < list.length; i++) {
+                temp.next = new node(list[i]);
+                temp = temp.next;
+            }
+        } else {
+            this.head = null;
+        }
+
+        this.length = list.length;
+    }
+
     // Returns true if the given value is contained in this LinkedList and removes
     // it. Returns false otherwise.
     public boolean remove(int value) {
@@ -71,7 +87,7 @@ public class LinkedList {
     //
     // Post: Returns the element at the requested index.
     public int elementAtIndex(int index) {
-        if (index >= this.getLength()) {
+        if (index >= this.getLength() || index < 0) {
             return Integer.MIN_VALUE;
         }
 
@@ -163,4 +179,6 @@ public class LinkedList {
 
         return true;
     }
+
+
 }
