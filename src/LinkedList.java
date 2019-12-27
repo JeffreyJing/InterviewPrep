@@ -38,6 +38,7 @@ public class LinkedList {
     // Empties this LinkedList.
     public void makeEmpty() {
         this.head = null;
+        this.length = 0;
     }
 
     // Returns whether this LinkedList is empty.

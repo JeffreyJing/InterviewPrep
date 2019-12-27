@@ -33,7 +33,12 @@ public class tests {
         // test copy constructor
         LinkedList list3 = new LinkedList(list2);
         testCopyConstructor(list2, list3, "list2", "list3");
+        System.out.println();
 
+        // test makeEmpty
+        testMakeEmpty(list3, "list3");
+        LinkedList list4 = new LinkedList();
+        testMakeEmpty(list4, "list4");
     }
 
     // Inserts a given 'num' value into the given 'list' LinkedList and prints a statement
@@ -76,7 +81,6 @@ public class tests {
         } else {
             System.out.println("Error: " + first + " was not successfully copied.");
         }
-
     }
 
     // Returns true if first and each of first's next nodes are not pointing to the same
@@ -89,5 +93,19 @@ public class tests {
         return true;
     }
 
-
+    public static void testMakeEmpty(LinkedList list, String listName) {
+        System.out.println("Testing makeEmpty. ");
+        System.out.print(listName + " before makeEmpty(): ");
+        list.print();
+        System.out.println();
+        list.makeEmpty();
+        System.out.print(listName + "  after makeEmpty(): ");
+        list.print();
+        if (list.isEmpty()) {
+            System.out.println();
+            System.out.println("Success! " + listName + " is now empty.");
+        } else {
+            System.out.println("Error: makeEmpty() failed.");
+        }
+    }
 }
