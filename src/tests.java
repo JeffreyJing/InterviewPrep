@@ -36,13 +36,18 @@ public class tests {
         System.out.println();
 
         // test makeEmpty
+        System.out.println("Testing makeEmpty().");
         testMakeEmpty(list3, "list3");
         LinkedList list4 = new LinkedList();
         testMakeEmpty(list4, "list4");
         System.out.println();
 
         // test remove
-
+        System.out.println("Testing remove()." );
+        testRemove(list3, 5, "list3");
+        testRemove(list3, 6, "list3");
+        testRemove(list2, 5, "list2");
+        testRemove(list2, 6, "list2");
     }
 
     // Inserts a given 'num' value into the given 'list' LinkedList and prints a statement
@@ -100,7 +105,6 @@ public class tests {
     // tests the LinkedList's makeEmpty() method and prints out a message
     // based on the results.
     public static void testMakeEmpty(LinkedList list, String listName) {
-        System.out.println("Testing makeEmpty().");
         System.out.print(listName + " before makeEmpty(): ");
         list.print();
         System.out.println();
@@ -115,17 +119,20 @@ public class tests {
         }
     }
 
-    // tests the LinkedList's remove() method and prints our a message
+    // tests the LinkedList's remove() method and prints out a message
     // based on the results.
     public static void testRemove(LinkedList list, int value, String listName) {
-        System.out.println("Testing remove()." );
         System.out.print(listName + " before remove(): ");
         list.print();
         System.out.println();
         if (list.remove(value)) {
             System.out.println("Successfully removed " + value + " from " + listName);
         } else {
-            System.out.println("Error: remove() failed.");
+            System.out.println("Error: remove() failed. " + value + " is not found in " + listName + ".");
         }
+
+        System.out.print(listName + " after remove(): ");
+        list.print();
+        System.out.println();
     }
 }

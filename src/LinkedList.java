@@ -38,7 +38,7 @@ public class LinkedList {
     // Returns true if the given value is contained in this LinkedList and removes
     // it. Returns false otherwise.
     public boolean remove(int value) {
-        node current = this.getHead();
+        node current = this.head;
         while (current != null && current.next != null) {
             if (current.next.getValue() == value) {
                 current.next = current.next.next;
@@ -76,7 +76,7 @@ public class LinkedList {
             return Integer.MIN_VALUE;
         }
 
-        node current = this.getHead();
+        node current = this.head;
         for (int i = 0; i < index; i++) {
             current = current.next;
         }
