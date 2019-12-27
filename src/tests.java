@@ -33,6 +33,8 @@ public class tests {
         // test copy constructor
         LinkedList list3 = new LinkedList(list2);
         testCopyConstructor(list2, list3, "list2", "list3");
+        testCopyConstructor(new LinkedList(), new LinkedList(new LinkedList()), "emptyList", "otherEmptyList");
+        testCopyConstructor(new LinkedList(5), new LinkedList(new LinkedList(5)), "original", "copy");
         System.out.println();
 
         // test makeEmpty
@@ -43,11 +45,18 @@ public class tests {
         System.out.println();
 
         // test remove
-        System.out.println("Testing remove()." );
+        System.out.println("Testing remove().");
         testRemove(list3, 5, "list3");
         testRemove(list3, 6, "list3");
         testRemove(list2, 5, "list2");
         testRemove(list2, 6, "list2");
+
+        // test contains
+        System.out.println("Testing contains().");
+        testContains(list3, 5, "list3");
+        testContains(list2, 5, "list2");
+        testContains(list2, 7, "list2");
+        testContains(list2, 8, "list2");
     }
 
     // Inserts a given 'num' value into the given 'list' LinkedList and prints a statement
@@ -134,5 +143,14 @@ public class tests {
         System.out.print(listName + " after remove(): ");
         list.print();
         System.out.println();
+    }
+
+    // tests the linkedList's contains method.
+    public static void testContains(LinkedList list, int value, String listName) {
+        System.out.print(listName + "= ");
+        list.print();
+        System.out.print(", value = " + value + ".");
+        System.out.println();
+        System.out.println(listName + " contains " + value + ": " + list.contains(value));
     }
 }

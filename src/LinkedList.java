@@ -19,8 +19,8 @@ public class LinkedList {
 
     // This is a copy constructor that creates a copy of the given LinkedList parameter.
     public LinkedList(LinkedList otherList) {
-        if (otherList != null) {
-            node temp = otherList.head;
+        if (otherList != null && otherList.getHead() != null) {
+            node temp = otherList.getHead();
             this.insert(temp.getValue(), 0);
             temp = temp.next;
             int index = 1;
@@ -33,7 +33,6 @@ public class LinkedList {
             this.head = null;
         }
     }
-
 
     // Returns true if the given value is contained in this LinkedList and removes
     // it. Returns false otherwise.
