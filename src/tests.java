@@ -39,6 +39,10 @@ public class tests {
         testMakeEmpty(list3, "list3");
         LinkedList list4 = new LinkedList();
         testMakeEmpty(list4, "list4");
+        System.out.println();
+
+        // test remove
+
     }
 
     // Inserts a given 'num' value into the given 'list' LinkedList and prints a statement
@@ -93,8 +97,10 @@ public class tests {
         return true;
     }
 
+    // tests the LinkedList's makeEmpty() method and prints out a message
+    // based on the results.
     public static void testMakeEmpty(LinkedList list, String listName) {
-        System.out.println("Testing makeEmpty. ");
+        System.out.println("Testing makeEmpty().");
         System.out.print(listName + " before makeEmpty(): ");
         list.print();
         System.out.println();
@@ -106,6 +112,20 @@ public class tests {
             System.out.println("Success! " + listName + " is now empty.");
         } else {
             System.out.println("Error: makeEmpty() failed.");
+        }
+    }
+
+    // tests the LinkedList's remove() method and prints our a message
+    // based on the results.
+    public static void testRemove(LinkedList list, int value, String listName) {
+        System.out.println("Testing remove()." );
+        System.out.print(listName + " before remove(): ");
+        list.print();
+        System.out.println();
+        if (list.remove(value)) {
+            System.out.println("Successfully removed " + value + " from " + listName);
+        } else {
+            System.out.println("Error: remove() failed.");
         }
     }
 }

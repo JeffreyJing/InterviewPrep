@@ -35,6 +35,55 @@ public class LinkedList {
     }
 
 
+    // Returns true if the given value is contained in this LinkedList and removes
+    // it. Returns false otherwise.
+    public boolean remove(int value) {
+        node current = this.getHead();
+        while (current != null && current.next != null) {
+            if (current.next.getValue() == value) {
+                current.next = current.next.next;
+                this.length--;
+                return true;
+            }
+
+            current = current.next;
+        }
+
+        return false;
+    }
+
+    // Returns true if this LinkedList contains the given value parameter,
+    // and returns false otherwise.
+    public boolean contains(int value) {
+        node current = this.head;
+        while (current != null) {
+            if (current.getValue() == value) {
+                return true;
+            }
+
+            current = current.next;
+        }
+
+        return false;
+    }
+
+    // Pre : The given index must be less than the length of this LinkedList
+    // (returns Integer.MIN_VALUE otherwise).
+    //
+    // Post: Returns the element at the requested index.
+    public int elementAtIndex(int index) {
+        if (index >= this.getLength()) {
+            return Integer.MIN_VALUE;
+        }
+
+        node current = this.getHead();
+        for (int i = 0; i < index; i++) {
+            current = current.next;
+        }
+
+        return current.getValue();
+    }
+
     // Empties this LinkedList.
     public void makeEmpty() {
         this.head = null;
