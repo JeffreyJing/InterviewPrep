@@ -34,6 +34,11 @@ public class LinkedList {
         }
     }
 
+    // Returns whether this LinkedList is empty.
+    public boolean isEmpty() {
+        return this.length == 0;
+    }
+
     // Prints out this LinkedList in "1 2 3 4 5" format.
     public void print() {
         node temp = this.head;
@@ -83,7 +88,6 @@ public class LinkedList {
         return this.length;
     }
 
-
     // Returns whether the given parameter LinkedList is equal to this LinkedList
     // (equal meaning containing the same value elements and being the same length).
     public boolean equals(LinkedList otherList) {
@@ -104,6 +108,4 @@ public class LinkedList {
 
         return true;
     }
-
-
 }
